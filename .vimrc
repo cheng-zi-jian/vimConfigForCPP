@@ -23,6 +23,7 @@ set smartindent
 set showmatch
 set matchtime=5
 
+let mapleader = "'"
 
 syntax on
 " 文件修改之后自动载入
@@ -164,7 +165,6 @@ endfunction
 """"""""""""""""""""""""""""""
 "Leaderf settings
 """"""""""""""""""""""""""""""
-let mapleader = "'"
 "文件搜索
 nnoremap <silent> <Leader>f :Leaderf file<CR>
 "历史打开过的文件
