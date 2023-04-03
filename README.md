@@ -31,7 +31,9 @@ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 
 ## 在vim中我常用快捷键
 - \e 打开文件目录
-- \rg 搜索（ctrl  j 或者  k 或者 l  或者 h） 选择
-- \f 搜文件
-- \F
+- \rg 搜索（ctrl  j 或者  k） 选择
+- \f 搜文件名
+- \F 搜索本文件的函数
+- \m 历史打开的文件
+- \b buffer文件
 - ctrl i 运行c/cpp程序， demo比较方便
