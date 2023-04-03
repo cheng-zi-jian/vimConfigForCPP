@@ -1,7 +1,14 @@
 # vimConfigForCPP
 
+### 前提：能科学上网
 
-Linux 能科学下安装插件管理器
+## 安装步骤
+
+拷贝配置文件
+```
+cp vimConfigForCPP/.vimrc ~/.vimrc
+```
+安装vim的Plug管理器
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -29,11 +36,17 @@ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_
 sudo dpkg -i ripgrep_13.0.0_amd64.deb
 ```
 
-## 在vim中我常用快捷键
-- \e 打开文件目录
-- \rg 搜索（ctrl  j 或者  k） 选择
-- \f 搜文件名
-- \F 搜索本文件的函数
-- \m 历史打开的文件
-- \b buffer文件
+## 日常使用快捷键 
+在vim中我常用快捷键（我定义的是单引号， 如果不喜欢把let mapleader = "'" 注释掉， 默认就是反斜杠了）
+- jk 代替ESC
+- 'e 打开文件目录
+- 'n new标签页
+- 'a 左标签页
+- 'd 右标签页
+- 'c close标签页
+- 'rg 搜索（ctrl  j 或者  k） 选择
+- 'f 搜文件名
+- 'F 搜索本文件的函数
+- 'm 历史打开的文件
+- 'b buffer文件
 - ctrl i 运行c/cpp程序， demo比较方便
