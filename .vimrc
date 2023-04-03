@@ -164,7 +164,7 @@ endfunction
 """"""""""""""""""""""""""""""
 "Leaderf settings
 """"""""""""""""""""""""""""""
-"let mapleader = "'"
+let mapleader = "'"
 "文件搜索
 nnoremap <silent> <Leader>f :Leaderf file<CR>
 "历史打开过的文件
