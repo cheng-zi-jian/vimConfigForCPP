@@ -214,8 +214,8 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 nmap <leader>q :bp<cr>:bd #<cr>
 
 nmap <leader>n :tabnew<cr>
-nmap <leader>a :tabnext<cr>
-nmap <leader>d :tabprevious<cr>
+nmap <leader>d :tabnext<cr>
+nmap <leader>a :tabprevious<cr>
 nmap <leader>c :tabclose<cr>
 
 
