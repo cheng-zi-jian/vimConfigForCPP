@@ -29,7 +29,7 @@ syntax on
 " 文件修改之后自动载入
 set autoread
 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
-set scrolloff=5
+set scrolloff=3
 " 左下角不显示当前vim模式
 set noshowmode
 
@@ -240,8 +240,8 @@ set completeopt=longest,menu
 """ 其他
 " 调整窗口移动
 nnoremap H <C-w>h
-nnoremap J <C-w>j
-nnoremap K <C-w>k
+"nnoremap J <C-w>j
+"nnoremap K <C-w>k
 nnoremap L <C-w>l
 " 快速保存
 inoremap jk <esc>:w<cr>
