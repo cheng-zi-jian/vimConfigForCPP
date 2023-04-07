@@ -36,6 +36,20 @@ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_
 sudo dpkg -i ripgrep_13.0.0_amd64.deb
 ```
 
+ctags第一次安装时候， 添加系统参数表
+```
+ctags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q  -f ~/.vim/systags /usr/include/* /usr/include/sys/* /usr/include/bits/*  /usr/include/netinet/* /usr/include/arpa/* /usr/include/mysql/*
+
+
+后续每次打开项目， 否则C语言的一些变量定义没有
+CPP
+ctags -R --fields=+iaS --extra=+q *
+
+C语言
+ctags -R --fields=+iaS --extra=+q * --languages=c --langmap=c:.c.h
+```
+
+
 ## 日常使用快捷键 
 在vim中我常用快捷键（我定义的是单引号， 如果不喜欢把let mapleader = "'" 注释掉， 默认就是反斜杠了）
 - jk 代替ESC
