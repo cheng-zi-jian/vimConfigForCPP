@@ -33,6 +33,20 @@ set scrolloff=3
 " 左下角不显示当前vim模式
 set noshowmode
 
+set nobackup
+set undodir=~/.vim/undodir
+if !isdirectory(&undodir)
+  call mkdir(&undodir, 'p', 0700)
+endif
+
+let g:c_space_errors = 1
+let g:c_gnu = 1
+let g:c_no_cformat = 1
+let g:c_no_curly_error = 1
+if exists('g:c_comment_strings')
+  unlet g:c_comment_strings
+endif
+
 """""""""""""""""""""""""" 代码折叠
 set foldenable
 " 折叠方法
@@ -70,12 +84,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'w0ng/vim-hybrid'
   Plug 'majutsushi/tagbar'
+  Plug 'mbbill/echofunc'
+  " Plug 'azabiong/vim-highlighter'
   "Plug 'scrooloose/nerdtree-project-plugin'
 
   " lsp
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
 
 " ==== preservim/nerdcommenter ====
 let g:NERDSpaceDelims = 1
@@ -100,14 +115,12 @@ set noshowmode
 " ==== luochen1990/rainbow ====
 let g:rainbow_active = 1
 
-
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
  
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 " <CR> to comfirm selected candidate
 " only when there's selected complete item
@@ -131,7 +144,6 @@ augroup mygroup
   " Setup formatexpr specified filetype(s).
   " Update signature help on jump placeholder
 augroup end
-
 
 " GoTo code navigation.
 
@@ -176,7 +188,6 @@ nnoremap <silent> <Leader>F :Leaderf function<CR>
 "模糊搜索，很强大的功能，迅速秒搜
 nnoremap <silent> <Leader>rg :Leaderf rg<CR>
 
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
@@ -218,11 +229,9 @@ nmap <leader>d :tabnext<cr>
 nmap <leader>a :tabprevious<cr>
 nmap <leader>c :tabclose<cr>
 
-
 "====hybrid=====
 set background=dark
 colorscheme hybrid
-
 
 " C and C++ compiler:
 autocmd FileType c nnoremap <buffer> <C-i> :w <RETURN> :!gcc % -o test -g && ./test <RETURN>
@@ -238,14 +247,19 @@ filetype plugin on
 set completeopt=longest,menu
 
 """ 其他
-" 调整窗口移动
-nnoremap H <C-w>h
-"nnoremap J <C-w>j
-"nnoremap K <C-w>k
-nnoremap L <C-w>l
 " 快速保存
 inoremap jk <esc>:w<cr>
 " 快速缩进
 vnoremap < <gv
 vnoremap > >gv
+" 停止搜索高亮的键映射
+nnoremap <silent> <F2>      :nohlsearch<CR>
+inoremap <silent> <F2> <C-O>:nohlsearch<CR>
 
+" 开关 Tagbar 插件的键映射
+nnoremap <F9>      :TagbarToggle<CR>
+inoremap <F9> <C-O>:TagbarToggle<CR>
+set tags+=~/.vim/systags
+" noremap  <F8> f<CR>
+" noremap  <F8> f<BS>
+" let HiFind  = 'f<Tab>'  搜索highlight
